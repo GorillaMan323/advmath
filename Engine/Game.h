@@ -31,6 +31,7 @@
 #include "StarBro.h"
 #include "FrameTimer.h"
 #include <random>
+#include "KeyBoardCameraController.h"
 #define PI 3.14159
 class Game
 {
@@ -90,5 +91,6 @@ private:
 	Camera cam;
 	MouseCameraController camCtrl;
 	std::vector<StarBro> stars;
+	KeyBoardCameraController kcc;
 	/********************************/
 };

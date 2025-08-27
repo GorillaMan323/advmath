@@ -27,6 +27,7 @@ public:
 	{
 		drawable.Translate( -pos );
 		drawable.Scale( scale );
+		drawable.Rotate(angle);
 		ct.Draw( drawable );
 	}
 	void SetScale( float s )
@@ -46,9 +47,16 @@ public:
 			float( Graphics::ScreenHeight / 2 ) * zoom
 		);
 	}
+	void SetAngle(const float angle_in) {
+		angle = angle_in;
+	}
 
+	const float GetAngle() const {
+		return angle;
+	}
 private:
 	Vec2 pos = {0.0f,0.0f};
 	float scale = 1.0f;
 	CoordinateTransformer& ct;
+	float angle = 0.0f;
 };
