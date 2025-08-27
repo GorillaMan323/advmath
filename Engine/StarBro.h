@@ -33,8 +33,12 @@ public:
 	void Update( float dt )
 	{
 		time += dt;
+		UpdateAngle(dt);
 		UpdateColor();
 		UpdateScale();
+	}
+	void SetRotation(const float rotation_in) {
+		rotation = rotation_in;
 	}
 private:
 	void UpdateColor()
@@ -51,6 +55,9 @@ private:
 		const float factor = radiusFactorAmplitude * sin( radiusFactorFreqFactor * time + radiusFactorPhase );
 		SetScale( 1.0f + factor );
 	}
+	void UpdateAngle(float dt) {
+		Updater(rotation*dt);
+	}
 private:
 	float radius;
 	Color baseColor;
@@ -59,5 +66,6 @@ private:
 	float radiusFactorAmplitude;
 	float radiusFactorFreqFactor;
 	float radiusFactorPhase;
-	float time;
+	float time =0.0f;
+	float rotation = 0.0f;
 };

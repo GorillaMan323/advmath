@@ -31,7 +31,7 @@
 #include "StarBro.h"
 #include "FrameTimer.h"
 #include <random>
-
+#define PI 3.14159
 class Game
 {
 public:
@@ -80,6 +80,9 @@ private:
 	static constexpr float devRadiusFreq = 1.0f;
 	static constexpr float minRadiusFreq = 0.6f;
 	static constexpr float maxRadiusFreq = 4.0f;
+
+	static constexpr float maxRotation = 2 * PI;
+	static constexpr float minRotation = -2 * PI;
 
 	// game objects
 	FrameTimer ft;

@@ -119,6 +119,16 @@ public:
 	{
 		return !(*this == rhs);
 	}
+
+
+	_Vec2& Rotate(const float angle) {
+		float sintheta = sin(angle);
+		float costheta = cos(angle);
+		const float NewX = x * costheta - y * sintheta;
+		y = y * costheta + x * sintheta;
+		x = NewX;
+		return *this;
+	}
 public:
 	T x;
 	T y;

@@ -40,13 +40,18 @@ public:
 	Drawable GetDrawable() const
 	{
 		Drawable d( model,c );
+		d.Rotate(angle);
 		d.Scale( scale );
 		d.Translate( pos );
 		return d;
+	}
+	void Updater(const float angle_in) {
+		angle += angle_in;
 	}
 private:
 	Color c;
 	float scale = 1.0f;
 	Vec2 pos = {0.0f,0.0f};
 	std::vector<Vec2> model;
+	float angle = 0.0f;
 };
