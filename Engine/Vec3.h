@@ -25,7 +25,7 @@ public:
 	{ }
 
 	explicit operator _Vec2<T>() const  {
-		return _Vec2<T>(vec3.x, vec3.y);
+		return _Vec2<T>(x,y);
 	}
 
 

@@ -14,8 +14,7 @@ public:
 	void Draw( Drawable& drawable ) const
 	{
 		const Vec2 offset = { float( Graphics::ScreenWidth / 2 ),float( Graphics::ScreenHeight / 2 ) };
-		drawable.ScaleIndependent( 1.0f,-1.0f );
-		drawable.Translate( offset );
+		drawable.ApplyTranslation(Mat3::Translate(offset.x, offset.y) * Mat3::InvertY());
 		drawable.Render( gfx );
 	}
 private:

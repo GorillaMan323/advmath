@@ -40,9 +40,7 @@ public:
 	Drawable GetDrawable() const
 	{
 		Drawable d( model,c );
-		d.Rotate(angle);
-		d.Scale( scale );
-		d.Translate( pos );
+		d.ApplyTranslation(Mat3::Translate(pos.x, pos.y) * Mat3::Scale(scale, scale) * Mat3::Rotate(angle));
 		return d;
 	}
 	void Updater(const float angle_in) {
@@ -53,5 +51,6 @@ private:
 	float scale = 1.0f;
 	Vec2 pos = {0.0f,0.0f};
 	std::vector<Vec2> model;
+	Mat3 translation = Mat3::Identity();
 	float angle = 0.0f;
 };

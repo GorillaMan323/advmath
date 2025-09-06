@@ -10,7 +10,7 @@ public:
 	_Vec2<T> operator*(const _Vec3<T>& other) {
 		return _Vec2<T>(*this * other);
 	}
-	_Mat3<T> operator*(const _Mat3<T>& other) {
+	_Mat3<T> operator*(const _Mat3<T>& other) const{
 		_Mat3<T> out;
 		for (int i = 0; i < 3; i++) {
 			for (int j = 0; j < 3; j++) {
@@ -32,10 +32,10 @@ public:
 		};
 	}
 	static _Mat3<T> Translate(const T x, const T y) {
-		return {(T)1,	(T)0,	x,
+		return { (T)1,	(T)0,	x,
 				(T)0,	(T)1,	y,
 				(T)0,	(T)0,	(T)1
-		}
+		};
 	}
 	static _Mat3<T> Identity() {
 		return {(T)1,	(T)0,	(T)0,
@@ -43,6 +43,24 @@ public:
 				(T)0,	(T)0,	(T)1 
 		};
 	}
+
+	static _Mat3<T> Scale(const T sx, const T sy) {
+				return {(T)sx,	(T)0,	(T)0,
+				(T)0,	(T)sy,	(T)0,
+				(T)0,	(T)0,	(T)1
+				};
+	}
+	static _Mat3<T> InvertY() {
+				return {
+			(T)1,	(T)0,	(T)0,
+			(T)0,	(T)-1,	(T)0,
+			(T)0,	(T)0,	(T)1
+				};
+	}
+
 public:
 	T cell[3][3];
 };
+
+typedef _Mat3<float> Mat3;
+typedef _Mat3<int> Mai3;
