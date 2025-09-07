@@ -25,7 +25,7 @@ public:
 	}
 	void Draw( Drawable& drawable ) const
 	{
-		drawable.ApplyTranslation(Mat3::Rotate(angle) * Mat3::Scale(scale, scale) * Mat3::Translate(-pos.x, -pos.y));
+		drawable.ApplyTranslation(Mat3::Rotate(angle) * Mat3::ScaleOne(scale) * Mat3::Translate(-pos.x, -pos.y));
 		ct.Draw( drawable );
 	}
 	void SetScale( float s )

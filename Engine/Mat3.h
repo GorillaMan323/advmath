@@ -45,17 +45,24 @@ public:
 	}
 
 	static _Mat3<T> Scale(const T sx, const T sy) {
-				return {(T)sx,	(T)0,	(T)0,
-				(T)0,	(T)sy,	(T)0,
-				(T)0,	(T)0,	(T)1
-				};
-	}
+			return {(T)sx,	(T)0,	(T)0,
+			(T)0,	(T)sy,	(T)0,
+			(T)0,	(T)0,	(T)1
+			};
+}
 	static _Mat3<T> InvertY() {
 				return {
 			(T)1,	(T)0,	(T)0,
 			(T)0,	(T)-1,	(T)0,
 			(T)0,	(T)0,	(T)1
 				};
+	}
+
+	static _Mat3<T> ScaleOne(const T Scale) {
+		return { scale,	(T)0,	(T)0,
+				(T)0,	scale,	(T)0,
+				(T)0,	(T)0,	(T)1
+		};
 	}
 
 public:
